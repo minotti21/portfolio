@@ -18,6 +18,7 @@ import Button from "@/components/Button";
 import { UserThemeContext } from "@/context/UserThemeContext";
 import { Link } from "react-scroll";
 import { IsMobileContext } from "@/context/IsMobileContext";
+import { Fade, Slide } from "react-awesome-reveal";
 
 const getImagePath = (backgroundColor: string, defaultColor: string) => {
   let imageSrc = "";
@@ -79,31 +80,45 @@ export default function Home() {
     <SectionContainer>
       <HomeContainer>
         <TextContainer>
-          <TitleContainer>
-            <StyledTitle>
-              Olá <StyledName>{name}</StyledName>!
-            </StyledTitle>
-            <StyledTitle>Seja muito bem-vindo&#40;a&#41;</StyledTitle>
-            <StyledTitle>ao meu portfólio! 😄👋</StyledTitle>
-          </TitleContainer>
-          <StyledText>Aqui você vai encontrar:</StyledText>
+          <Slide triggerOnce>
+            <TitleContainer>
+              <StyledTitle>
+                Olá <StyledName>{name}</StyledName>!
+              </StyledTitle>
+              <StyledTitle>Seja muito bem-vindo&#40;a&#41;</StyledTitle>
+              <StyledTitle>ao meu portfólio! 😄👋</StyledTitle>
+            </TitleContainer>
+            <StyledText>Aqui você vai encontrar:</StyledText>
+          </Slide>
           <StyledList>
-            <StyledItemList>Um pouco sobre mim</StyledItemList>
-            <StyledItemList>Hobbies e tecnologias</StyledItemList>
-            <StyledItemList>Alguns projetos</StyledItemList>
-            <StyledItemList>Formas de me contatar</StyledItemList>
+            <Slide delay={200} triggerOnce cascade damping={0.1}>
+              <StyledItemList>Um pouco sobre mim</StyledItemList>
+              <StyledItemList>Hobbies e tecnologias</StyledItemList>
+              <StyledItemList>Alguns projetos</StyledItemList>
+              <StyledItemList>Formas de me contatar</StyledItemList>
+            </Slide>
           </StyledList>
-          <Link href="about" to="about" duration={1000} offset={-92} smooth={true}>
-            <Button text="Conhecer" />
-          </Link>
+          <Slide triggerOnce delay={600}>
+            <Link
+              href="about"
+              to="about"
+              duration={1000}
+              offset={-92}
+              smooth={true}
+            >
+              <Button text="Conhecer" />
+            </Link>
+          </Slide>
         </TextContainer>
-        <Imagecontainer
-          priority
-          width={720}
-          height={540}
-          src={imagePath}
-          alt="eu"
-        />
+        <Slide triggerOnce direction="right">
+          <Imagecontainer
+            priority
+            width={720}
+            height={540}
+            src={imagePath}
+            alt="eu"
+          />
+        </Slide>
       </HomeContainer>
     </SectionContainer>
   );

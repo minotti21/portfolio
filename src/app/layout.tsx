@@ -38,7 +38,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt">
-      <body className={poppins.className}>
+      <body style={{ overflowX: "hidden" }} className={poppins.className}>
         <StyledComponentsRegistry>
           <DynamicUserThemeProvider>
             <NameProvider>

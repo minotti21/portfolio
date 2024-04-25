@@ -18,6 +18,7 @@ import api from "@/api/api";
 import FormModal from "@/components/FormModal";
 import Loading from "@/components/Loading";
 import { ScrollbarContext } from "@/context/ScrollbarContext";
+import { Fade, Slide, Zoom } from "react-awesome-reveal";
 
 interface FormType {
   name: string;
@@ -89,49 +90,54 @@ export default function Contact() {
       <Loading isLoading={isSending} />
       <SectionContainer id="contact">
         <ContactContainer>
-          <Title style={{ marginBottom: "0.4em" }}>Contato</Title>
-          <StyledText>
-            Preencha o formulário abaixo e me envie uma mensagem! Receberei no
-            meu e-mail via uma API feita em Node com Express
-          </StyledText>
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <StyledLabel htmlFor="name">Nome</StyledLabel>
-            <StyledInput
-              type="text"
-              id="name"
-              defaultValue={name}
-              maxLength={25}
-              {...register("name", { required: true })}
+          <Zoom triggerOnce fraction={0.5}>
+            <Title style={{ marginBottom: "0.4em" }}>Contato</Title>
+            <StyledText>
+              Preencha o formulário abaixo e me envie uma mensagem! Receberei no
+              meu e-mail via uma API feita em Node com Express
+            </StyledText>
+          </Zoom>
+
+          <Fade duration={2000} triggerOnce fraction={0.5}>
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <StyledLabel htmlFor="name">Nome</StyledLabel>
+              <StyledInput
+                type="text"
+                id="name"
+                defaultValue={name}
+                maxLength={25}
+                {...register("name", { required: true })}
               />
-            <StyledLabel htmlFor="email">E-mail</StyledLabel>
-            <StyledInput
-              id="email"
-              type="email"
-              {...register("email", { required: true })}
+              <StyledLabel htmlFor="email">E-mail</StyledLabel>
+              <StyledInput
+                id="email"
+                type="email"
+                {...register("email", { required: true })}
               />
-            <StyledLabel htmlFor="message">Mensagem</StyledLabel>
-            <StyledTextArea
-              id="message"
-              maxLength={600}
-              {...register("message", { required: true, minLength: 60 })}
-            />
-            {errors.name?.type === "required" && <p>O nome é obrigatório!</p>}
-            {errors.email?.type === "required" && (
-              <p>O e-mail é obrigatório!</p>
-            )}
-            {errors.message?.type === "required" && (
-              <p>A mensagem é obrigatória!</p>
-            )}
-            {errors.message?.type === "minLength" && (
-              <p>A mensagem deve conter mais de 60 caracteres!</p>
-            )}
-            <Button
-              text="Confirmar"
-              disabled={isSending}
-              type="submit"
-              style={{ alignSelf: "flex-end", marginTop: "0.5em" }}
-            />
-          </form>
+              <StyledLabel htmlFor="message">Mensagem</StyledLabel>
+              <StyledTextArea
+                id="message"
+                maxLength={600}
+                {...register("message", { required: true, minLength: 60 })}
+              />
+              {errors.name?.type === "required" && <p>O nome é obrigatório!</p>}
+              {errors.email?.type === "required" && (
+                <p>O e-mail é obrigatório!</p>
+              )}
+              {errors.message?.type === "required" && (
+                <p>A mensagem é obrigatória!</p>
+              )}
+              {errors.message?.type === "minLength" && (
+                <p>A mensagem deve conter mais de 60 caracteres!</p>
+              )}
+              <Button
+                text="Confirmar"
+                disabled={isSending}
+                type="submit"
+                style={{ alignSelf: "flex-end", marginTop: "0.5em" }}
+              />
+            </form>
+          </Fade>
         </ContactContainer>
       </SectionContainer>
     </>

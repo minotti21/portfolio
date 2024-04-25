@@ -17,6 +17,7 @@ import { isEqual } from "lodash";
 import { NameContext } from "@/context/NameContext";
 import Button from "../Button";
 import { useForm } from "react-hook-form";
+import { Zoom } from "react-awesome-reveal";
 import Title from "../Title";
 import { ScrollbarContext } from "@/context/ScrollbarContext";
 
@@ -39,7 +40,7 @@ export default function InitialModal() {
   useEffect(() => {
     if (name === "") {
       setIsVisible(true);
-      setShowScrollbar(false)
+      setShowScrollbar(false);
       return;
     }
 
@@ -74,42 +75,44 @@ export default function InitialModal() {
 
   return (
     <ModalContainer>
-      <StyledModal>
-        <Title>Calma aí!</Title>
-        <StyledText>
-          Antes da gente começar, escolhe sua cor favorita:{" "}
-        </StyledText>
-        <StyledSubText>Você poderá escolher outra depois 😅</StyledSubText>
-        <ColorsContainer>
-          {colors.map((color) => (
-            <StyledColorIcon
-              onClick={() => handleColorClick(color)}
-              key={color}
-              color={color}
+      <Zoom triggerOnce>
+        <StyledModal>
+          <Title>Calma aí!</Title>
+          <StyledText>
+            Antes da gente começar, escolhe sua cor favorita:{" "}
+          </StyledText>
+          <StyledSubText>Você poderá escolher outra depois 😅</StyledSubText>
+          <ColorsContainer>
+            {colors.map((color) => (
+              <StyledColorIcon
+                onClick={() => handleColorClick(color)}
+                key={color}
+                color={color}
+              />
+            ))}
+          </ColorsContainer>
+          <StyledText htmlFor="name">Agora, me diz seu nome: </StyledText>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <StyledInput
+              id="name"
+              type="text"
+              maxLength={20}
+              {...register("name", { pattern: /^[A-zÀ-ú]+$/i, required: true })}
             />
-          ))}
-        </ColorsContainer>
-        <StyledText htmlFor="name">Agora, me diz seu nome: </StyledText>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <StyledInput
-            id="name"
-            type="text"
-            maxLength={20}
-            {...register("name", { pattern: /^[A-zÀ-ú]+$/i, required: true })}
-          />
-          {errors.name?.type === "required" && (
-            <StyledError>O campo é obrigatório!</StyledError>
-          )}
-          {errors.name?.type === "pattern" && (
-            <StyledError>O campo deve conter apenas letras!</StyledError>
-          )}
-          <Button
-            text="Confirmar"
-            type="submit"
-            style={{ alignSelf: "flex-end", marginTop: "0.5em" }}
-          />
-        </form>
-      </StyledModal>
+            {errors.name?.type === "required" && (
+              <StyledError>O campo é obrigatório!</StyledError>
+            )}
+            {errors.name?.type === "pattern" && (
+              <StyledError>O campo deve conter apenas letras!</StyledError>
+            )}
+            <Button
+              text="Confirmar"
+              type="submit"
+              style={{ alignSelf: "flex-end", marginTop: "0.5em" }}
+            />
+          </form>
+        </StyledModal>
+      </Zoom>
     </ModalContainer>
   );
 }

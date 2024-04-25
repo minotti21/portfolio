@@ -24,6 +24,7 @@ import { black, colors, white } from "@/constants/colors";
 import { WindowHeightContext } from "@/context/WindowHeightContext";
 import { Link, animateScroll } from "react-scroll";
 import { ScrollbarContext } from "@/context/ScrollbarContext";
+import { Fade } from "react-awesome-reveal";
 
 export default function Navbar() {
   const { currentHeight } = useContext(WindowHeightContext);
@@ -137,60 +138,62 @@ export default function Navbar() {
 
   return (
     <NavbarPosition $showBorder={showBorder}>
-      <NavbarContainer>
-        <StyledLogo onClick={scrollToTop}>minotti.dev</StyledLogo>
-        <StyledNavItems>
-          <StyledNavItem>
-            <Link
-              href="about"
-              to="about"
-              duration={1000}
-              offset={-92}
-              smooth={true}
-            >
-              Sobre
-            </Link>
-          </StyledNavItem>
-          <StyledNavItem>
-            <Link
-              href="technologies"
-              to="technologies"
-              duration={1000}
-              offset={-92}
-              smooth={true}
-            >
-              Tecnologias
-            </Link>
-          </StyledNavItem>
-          <StyledNavItem>
-            <Link
-              href="projects"
-              to="projects"
-              duration={1000}
-              offset={-92}
-              smooth={true}
-            >
-              Projetos
-            </Link>
-          </StyledNavItem>
-          <StyledNavItem>
-            <Link
-              href="contact"
-              to="contact"
-              duration={1000}
-              offset={-92}
-              smooth={true}
-            >
-              Contato
-            </Link>
-          </StyledNavItem>
-          <StyledThemeIcon onClick={toggleTheme}>
-            {isThemeLight ? <PiMoon size={24} /> : <PiSun size={24} />}
-          </StyledThemeIcon>
-          <ColorSelector />
-        </StyledNavItems>
-        <Menu onClick={toggleMenu} size={44} />
-      </NavbarContainer>
+      <Fade direction="down">
+        <NavbarContainer>
+          <StyledLogo onClick={scrollToTop}>minotti.dev</StyledLogo>
+          <StyledNavItems>
+            <StyledNavItem>
+              <Link
+                href="about"
+                to="about"
+                duration={1000}
+                offset={-92}
+                smooth={true}
+              >
+                Sobre
+              </Link>
+            </StyledNavItem>
+            <StyledNavItem>
+              <Link
+                href="technologies"
+                to="technologies"
+                duration={1000}
+                offset={-92}
+                smooth={true}
+              >
+                Tecnologias
+              </Link>
+            </StyledNavItem>
+            <StyledNavItem>
+              <Link
+                href="projects"
+                to="projects"
+                duration={1000}
+                offset={-92}
+                smooth={true}
+              >
+                Projetos
+              </Link>
+            </StyledNavItem>
+            <StyledNavItem>
+              <Link
+                href="contact"
+                to="contact"
+                duration={1000}
+                offset={-92}
+                smooth={true}
+              >
+                Contato
+              </Link>
+            </StyledNavItem>
+            <StyledThemeIcon onClick={toggleTheme}>
+              {isThemeLight ? <PiMoon size={24} /> : <PiSun size={24} />}
+            </StyledThemeIcon>
+            <ColorSelector />
+          </StyledNavItems>
+          <Menu onClick={toggleMenu} size={44} />
+        </NavbarContainer>
+      </Fade>
     </NavbarPosition>
   );
 }

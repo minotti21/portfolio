@@ -15,12 +15,15 @@ import {
 import SectionContainer from "@/components/Section";
 import Title from "@/components/Title";
 import { IsMobileContext } from "@/context/IsMobileContext";
+import { Fade } from "react-awesome-reveal";
 
 export default function Technologies() {
   const [currentSkill, setCurrentSkill] = useState("");
   const { isMobile } = useContext(IsMobileContext);
 
-  const tecnologyInfo = isMobile ? "Clique nas tecnologias acima 👆" : "Passe o mouse sobre as tecnologias acima 👆";
+  const tecnologyInfo = isMobile
+    ? "Clique nas tecnologias acima 👆"
+    : "Passe o mouse sobre as tecnologias acima 👆";
 
   let technologyText = <TechnologyInfoSpan>{tecnologyInfo}</TechnologyInfoSpan>;
 
@@ -40,9 +43,7 @@ export default function Technologies() {
             pesquisa nuclear para facilitar o compartilhamento de documentos
             feitos no computador.
           </TechnologyInfoText>
-          <ExperienceText>
-            Tempo de experiência: 3 anos
-          </ExperienceText>
+          <ExperienceText>Tempo de experiência: 3 anos</ExperienceText>
         </>
       );
 
@@ -62,9 +63,7 @@ export default function Technologies() {
             português) e permitiu que os desenvolvedores separassem o arquivos
             de estilo e texto, trazendo mais organização aos projetos.
           </TechnologyInfoText>
-          <ExperienceText>
-            Tempo de experiência: 3 anos
-          </ExperienceText>
+          <ExperienceText>Tempo de experiência: 3 anos</ExperienceText>
         </>
       );
 
@@ -148,9 +147,7 @@ export default function Technologies() {
             APIs, aplicativos móveis, aplicações desktop, machine learning,
             internet das coisas, etc.
           </TechnologyInfoText>
-          <ExperienceText>
-            Tempo de experiência: 3 anos
-          </ExperienceText>
+          <ExperienceText>Tempo de experiência: 3 anos</ExperienceText>
         </>
       );
 
@@ -379,156 +376,162 @@ export default function Technologies() {
   return (
     <SectionContainer id="technologies">
       <TechnologiesContainer>
-        <Title style={{ marginBottom: "0.4em" }}>Tecnologias</Title>
-        <StyledMiddleText>
-          Depois de muita dedicação, consegui um emprego como desenvolvedor full
-          stack e aprimorei ainda mais meus conhecimentos. Logo abaixo, você vai
-          encontrar as tecnologias que utilizo, um breve resumo feito por mim e
-          também o tempo que tenho de experiência com cada uma:
-        </StyledMiddleText>
+        <Fade triggerOnce fraction={0.5} duration={1300}>
+          <Title style={{ marginBottom: "0.4em" }}>Tecnologias</Title>
+          <StyledMiddleText>
+            Depois de muita dedicação, consegui um emprego como desenvolvedor
+            full stack e aprimorei ainda mais meus conhecimentos. Logo abaixo,
+            você vai encontrar as tecnologias que utilizo, um breve resumo feito
+            por mim e também o tempo que tenho de experiência com cada uma:
+          </StyledMiddleText>
+        </Fade>
 
         <TechnologiesImageContainer>
-          <StyledTechnologyImage
-            onMouseEnter={() => setCurrentSkill("html")}
-            onMouseLeave={() => setCurrentSkill("")}
-            src="/html.svg"
-            width={80}
-            height={80}
-            alt="icon"
-          />
-          <StyledTechnologyImage
-            onMouseEnter={() => setCurrentSkill("css")}
-            onMouseLeave={() => setCurrentSkill("")}
-            src="/css.svg"
-            width={80}
-            height={80}
-            alt="icon"
-          />
-          <StyledTechnologyImage
-            onMouseEnter={() => setCurrentSkill("sass")}
-            onMouseLeave={() => setCurrentSkill("")}
-            src="/sass.svg"
-            width={80}
-            height={80}
-            alt="icon"
-          />
-          <StyledTechnologyImage
-            onMouseEnter={() => setCurrentSkill("tailwind")}
-            onMouseLeave={() => setCurrentSkill("")}
-            src="/tailwind.svg"
-            width={80}
-            height={80}
-            alt="icon"
-          />
-          <StyledTechnologyImage
-            onMouseEnter={() => setCurrentSkill("styled")}
-            onMouseLeave={() => setCurrentSkill("")}
-            src="/styled.svg"
-            width={80}
-            height={80}
-            alt="icon"
-          />
-          <StyledTechnologyImage
-            onMouseEnter={() => setCurrentSkill("javascript")}
-            onMouseLeave={() => setCurrentSkill("")}
-            src="/javascript.svg"
-            width={80}
-            height={80}
-            alt="icon"
-          />
-          <StyledTechnologyImage
-            onMouseEnter={() => setCurrentSkill("typescript")}
-            onMouseLeave={() => setCurrentSkill("")}
-            src="/typescript.svg"
-            width={80}
-            height={80}
-            alt="icon"
-          />
-          <StyledTechnologyImage
-            onMouseEnter={() => setCurrentSkill("react")}
-            onMouseLeave={() => setCurrentSkill("")}
-            src="/react.svg"
-            width={80}
-            height={80}
-            alt="icon"
-          />
-          <StyledTechnologyImage
-            onMouseEnter={() => setCurrentSkill("redux")}
-            onMouseLeave={() => setCurrentSkill("")}
-            src="/redux.svg"
-            width={80}
-            height={80}
-            alt="icon"
-          />
-          <StyledTechnologyImage
-            style={{
-              backgroundColor: "rgb(248, 250, 252)",
-              padding: 2,
-              borderRadius: 111,
-            }}
-            onMouseEnter={() => setCurrentSkill("next")}
-            onMouseLeave={() => setCurrentSkill("")}
-            src="/next.svg"
-            width={80}
-            height={80}
-            alt="icon"
-          />
-          <StyledTechnologyImage
-            onMouseEnter={() => setCurrentSkill("node")}
-            onMouseLeave={() => setCurrentSkill("")}
-            src="/node.svg"
-            width={80}
-            height={80}
-            alt="icon"
-          />
-          <StyledTechnologyImage
-            onMouseEnter={() => setCurrentSkill("express")}
-            style={{
-              backgroundColor: "rgb(248, 250, 252)",
-              padding: 2,
-              borderRadius: 111,
-            }}
-            onMouseLeave={() => setCurrentSkill("")}
-            src="/express.svg"
-            width={80}
-            height={80}
-            alt="icon"
-          />
-          <StyledTechnologyImage
-            onMouseEnter={() => setCurrentSkill("java")}
-            onMouseLeave={() => setCurrentSkill("")}
-            src="/java.svg"
-            width={80}
-            height={80}
-            alt="icon"
-          />
-          <StyledTechnologyImage
-            onMouseEnter={() => setCurrentSkill("android")}
-            onMouseLeave={() => setCurrentSkill("")}
-            src="/android.svg"
-            width={80}
-            height={80}
-            alt="icon"
-          />
-          <StyledTechnologyImage
-            onMouseEnter={() => setCurrentSkill("database")}
-            onMouseLeave={() => setCurrentSkill("")}
-            src="/database.svg"
-            width={80}
-            height={80}
-            alt="icon"
-          />
-          <StyledTechnologyImage
-            onMouseEnter={() => setCurrentSkill("git")}
-            onMouseLeave={() => setCurrentSkill("")}
-            src="/git.svg"
-            width={80}
-            height={80}
-            alt="icon"
-          />
+          <Fade triggerOnce fraction={0.5} cascade damping={0.1}>
+            <StyledTechnologyImage
+              onMouseEnter={() => setCurrentSkill("html")}
+              onMouseLeave={() => setCurrentSkill("")}
+              src="/html.svg"
+              width={80}
+              height={80}
+              alt="icon"
+            />
+            <StyledTechnologyImage
+              onMouseEnter={() => setCurrentSkill("css")}
+              onMouseLeave={() => setCurrentSkill("")}
+              src="/css.svg"
+              width={80}
+              height={80}
+              alt="icon"
+            />
+            <StyledTechnologyImage
+              onMouseEnter={() => setCurrentSkill("sass")}
+              onMouseLeave={() => setCurrentSkill("")}
+              src="/sass.svg"
+              width={80}
+              height={80}
+              alt="icon"
+            />
+            <StyledTechnologyImage
+              onMouseEnter={() => setCurrentSkill("tailwind")}
+              onMouseLeave={() => setCurrentSkill("")}
+              src="/tailwind.svg"
+              width={80}
+              height={80}
+              alt="icon"
+            />
+            <StyledTechnologyImage
+              onMouseEnter={() => setCurrentSkill("styled")}
+              onMouseLeave={() => setCurrentSkill("")}
+              src="/styled.svg"
+              width={80}
+              height={80}
+              alt="icon"
+            />
+            <StyledTechnologyImage
+              onMouseEnter={() => setCurrentSkill("javascript")}
+              onMouseLeave={() => setCurrentSkill("")}
+              src="/javascript.svg"
+              width={80}
+              height={80}
+              alt="icon"
+            />
+            <StyledTechnologyImage
+              onMouseEnter={() => setCurrentSkill("typescript")}
+              onMouseLeave={() => setCurrentSkill("")}
+              src="/typescript.svg"
+              width={80}
+              height={80}
+              alt="icon"
+            />
+            <StyledTechnologyImage
+              onMouseEnter={() => setCurrentSkill("react")}
+              onMouseLeave={() => setCurrentSkill("")}
+              src="/react.svg"
+              width={80}
+              height={80}
+              alt="icon"
+            />
+            <StyledTechnologyImage
+              onMouseEnter={() => setCurrentSkill("redux")}
+              onMouseLeave={() => setCurrentSkill("")}
+              src="/redux.svg"
+              width={80}
+              height={80}
+              alt="icon"
+            />
+            <StyledTechnologyImage
+              style={{
+                backgroundColor: "rgb(248, 250, 252)",
+                padding: 2,
+                borderRadius: 111,
+              }}
+              onMouseEnter={() => setCurrentSkill("next")}
+              onMouseLeave={() => setCurrentSkill("")}
+              src="/next.svg"
+              width={80}
+              height={80}
+              alt="icon"
+            />
+            <StyledTechnologyImage
+              onMouseEnter={() => setCurrentSkill("node")}
+              onMouseLeave={() => setCurrentSkill("")}
+              src="/node.svg"
+              width={80}
+              height={80}
+              alt="icon"
+            />
+            <StyledTechnologyImage
+              onMouseEnter={() => setCurrentSkill("express")}
+              style={{
+                backgroundColor: "rgb(248, 250, 252)",
+                padding: 2,
+                borderRadius: 111,
+              }}
+              onMouseLeave={() => setCurrentSkill("")}
+              src="/express.svg"
+              width={80}
+              height={80}
+              alt="icon"
+            />
+            <StyledTechnologyImage
+              onMouseEnter={() => setCurrentSkill("java")}
+              onMouseLeave={() => setCurrentSkill("")}
+              src="/java.svg"
+              width={80}
+              height={80}
+              alt="icon"
+            />
+            <StyledTechnologyImage
+              onMouseEnter={() => setCurrentSkill("android")}
+              onMouseLeave={() => setCurrentSkill("")}
+              src="/android.svg"
+              width={80}
+              height={80}
+              alt="icon"
+            />
+            <StyledTechnologyImage
+              onMouseEnter={() => setCurrentSkill("database")}
+              onMouseLeave={() => setCurrentSkill("")}
+              src="/database.svg"
+              width={80}
+              height={80}
+              alt="icon"
+            />
+            <StyledTechnologyImage
+              onMouseEnter={() => setCurrentSkill("git")}
+              onMouseLeave={() => setCurrentSkill("")}
+              src="/git.svg"
+              width={80}
+              height={80}
+              alt="icon"
+            />
+          </Fade>
         </TechnologiesImageContainer>
 
-        <TechnologyInfoContainer>{technologyText}</TechnologyInfoContainer>
+        <Fade triggerOnce fraction={0.5} duration={1400}>
+          <TechnologyInfoContainer>{technologyText}</TechnologyInfoContainer>
+        </Fade>
       </TechnologiesContainer>
     </SectionContainer>
   );
